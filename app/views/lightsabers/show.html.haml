@@ -1,0 +1,21 @@
+%h1
+  .page-header
+    = @lightsaber.name
+
+
+= image_tag("#{@random_gif}.gif")
+
+%br
+%em Jedi Name:
+=@lightsaber.name
+%br
+%em Color:
+=@lightsaber.color
+
+%br
+
+= link_to "Edit", edit_lightsaber_path(@lightsaber), class: "btn btn-info"
+= link_to "Delete", lightsaber_path(@lightsaber), class: "btn btn-danger", method: :delete, data: {confirm: "Do you really want to leave the force?"}
+
+%hr
+=link_to "All Jedi", lightsabers_path, class: "btn btn-info"

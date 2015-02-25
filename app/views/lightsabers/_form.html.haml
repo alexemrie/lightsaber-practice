@@ -1,0 +1,25 @@
+=form_for @lightsaber do |f|
+  - if @lightsaber.errors.any?
+    .alert.alert-danger
+      %h3
+        = pluralize(@lightsaber.errors.count, "error")
+        prohibited this Jedi from being saved:
+
+      %ul
+        - @lightsaber.errors.full_messages.each do |message|
+          %li
+            = message
+
+  =f.label :name
+  =f.text_field :name
+  %br
+
+    =f.label :color
+    =f.text_field :color
+  %br
+
+    =f.submit name_of_button, class: "btn btn-info"
+
+%br
+
+= image_tag("lightsaber_horizontal.jpeg")

@@ -1,0 +1,24 @@
+%h1
+  .page-header
+    All Jedi
+
+%table.table
+  %thead
+    %tr
+      %th{:colspan => "2"}
+        %strong Jedi Stats
+
+  %tbody
+    - @lightsabers.each do |lightsaber|
+      %tr
+        %td.col-md-10
+          %em Jedi Name:
+          = link_to lightsaber.name, lightsaber_path(lightsaber)
+          %br
+          %em Color:
+          =lightsaber.color
+        %td.text-right
+          = link_to "Edit", edit_lightsaber_path(lightsaber), class: "btn btn-default"
+          = link_to "Delete", lightsaber_path(lightsaber), class: "btn btn-danger", method: :delete, data: {confirm: "Do you really want to leave the force?"}
+
+= link_to "New Jedi", new_lightsaber_path(@lightsaber), class: "btn btn-success"
